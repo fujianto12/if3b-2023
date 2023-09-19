@@ -32,4 +32,38 @@ $nama = "fujianto";
         echo "Sistem Informasi";
     }
 
+    require('mdp_helper.php');
+    echo get_prodi($kode_prodi);
+    echo "<hr>";
+
+    $mahasiswa = [
+        [
+        "npm" => "2226250118",
+        "nama" => "riski"
+        ],
+        [
+        "npm" => "2226240118",
+        "nama" => "padel"
+        ]
+        ];
+    echo "<table border=1> 
+    <thead>
+
+    <th>npm</th>
+    <th>nama</th>
+    <th>Program Studi</th>
+
+    <thead>
+     <tbody>";
+            foreach($mahasiswa as $row){
+                echo "
+                <tr> 
+                    <td>".$row['npm']."</td> 
+                    <td>".$row['nama']."</td> 
+                    <td>".get_prodi(substr($row['npm'], 4,2))."</td>
+
+                </tr>";
+            }
+            echo "</tbody></table>";
+
 ?>
